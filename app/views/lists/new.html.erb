@@ -1,0 +1,6 @@
+<h1>create a new list</h1>
+
+<%= simple_form_for @list do |f| %>
+    <%= f.input :name, placeholder: 'name of the list' %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
