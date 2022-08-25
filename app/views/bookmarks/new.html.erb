@@ -1,5 +1,15 @@
 <div class="container">
-  <h1>creating a new bookmark</h1>
+  <h1>New bookmark of <%= @list.name %></h1>
+
+<%= simple_form_for [@list, @bookmark] do |b| %>
+  <%= b.association :movie, prompt: "Select a movie",
+  collection: Movie.all.order(:title),
+  input_html: { data: { controller: "select" } } %>
+  <%= b.input :comment, placeholder: 'Minimum 6 characters' %>
+  <%= b.submit 'Add bookmark', class: 'btn btn-primary' %>
+<% end %>
+
+<%= link_to "back", list_path(@list), class: 'btn btn-danger' %>
 
 
 </div>
